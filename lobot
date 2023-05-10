@@ -1,0 +1,288 @@
+package sirroaGroupPro;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+
+public class left extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JLabel lblQuantity;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JLabel lblUnitPrice;
+	private JTextField textField_4;
+	private JLabel lblQuantity_2;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JLabel lblGrandTotal;
+	private JLabel lblCash;
+	private JLabel lblChange;
+	private JButton btnNewButton;
+	private JTextArea textArea;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					left frame = new left();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public left() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 640, 469);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Item Code");
+		lblNewLabel.setBounds(10, 11, 81, 25);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+					
+			public void keyReleased(KeyEvent e) {
+				 String itemCode = textField.getText();
+			        switch (itemCode) {
+			            case "01":
+			                textField_1.setText("Under wear");
+			                textField_2.setText("1");
+			                textField_3.setText("10.00");
+			                textField_4.setText("10.00");
+			                break;
+			            case "02":
+			                textField_1.setText("Ginamos");
+			                textField_2.setText("1");
+			                textField_3.setText("20.00");
+			                textField_4.setText("20.00");
+			                break;
+			            case "03":
+			                textField_1.setText("Lubi");
+			                textField_2.setText("1");
+			                textField_3.setText("30.00");
+			                textField_4.setText("30.00");
+			                break;
+			            case "04":
+			                textField_1.setText("Silhig");
+			                textField_2.setText("1");
+			                textField_3.setText("40.00");
+			                textField_4.setText("40.00");
+			                break;
+			            case "05":
+			                textField_1.setText("Bulad");
+			                textField_2.setText("1");
+			                textField_3.setText("50.00");
+			                textField_4.setText("50.00");
+			                break;
+			            default:
+			                textField_1.setText("");
+			                textField_2.setText("");
+			                textField_3.setText("");
+			                textField_4.setText("");
+			                
+			        }
+			}
+		});
+		textField.setBounds(10, 43, 113, 38);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblProductName = new JLabel("Product Name");
+		lblProductName.setBounds(149, 11, 81, 25);
+		contentPane.add(lblProductName);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(149, 43, 113, 38);
+		contentPane.add(textField_1);
+		
+		lblQuantity = new JLabel("Quantity");
+		lblQuantity.setBounds(10, 92, 81, 25);
+		contentPane.add(lblQuantity);
+		
+		textField_2 = new JTextField();
+		textField_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+				        try {
+				            int quantity = Integer.parseInt(textField_2.getText());
+				            double price = Double.parseDouble(textField_3.getText());
+				            double total = quantity * price;
+				            textField_4.setText(String.format("%.2f", total));
+				        } catch (NumberFormatException ex) {
+				            textField_4.setText("");
+				        }
+			}
+		});
+		textField_2.setColumns(10);
+		textField_2.setBounds(10, 128, 113, 38);
+		contentPane.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				 try {
+			            int quantity = Integer.parseInt(textField_2.getText());
+			            double price = Double.parseDouble(textField_3.getText());
+			            double total = quantity * price;
+			            textField_4.setText(String.format("%.2f", total));
+			        } catch (NumberFormatException ex) {
+			            textField_4.setText("");
+			        }
+			}
+		});
+		textField_3.setColumns(10);
+		textField_3.setBounds(10, 222, 113, 38);
+		contentPane.add(textField_3);
+		
+		lblUnitPrice = new JLabel("Unit Price");
+		lblUnitPrice.setBounds(10, 186, 81, 25);
+		contentPane.add(lblUnitPrice);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(149, 222, 113, 38);
+		contentPane.add(textField_4);
+		
+		lblQuantity_2 = new JLabel("Total Price");
+		lblQuantity_2.setBounds(149, 186, 81, 25);
+		contentPane.add(lblQuantity_2);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(117, 285, 113, 25);
+		contentPane.add(textField_5);
+		
+		textField_6 = new JTextField();
+		textField_6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {		 
+			    String textField6Str = textField_6.getText();
+			    String textField5Str = textField_5.getText();
+			    if (!textField6Str.isEmpty() && !textField5Str.isEmpty()) {
+			        double textField6Value = Double.parseDouble(textField6Str);
+			        double textField5Value = Double.parseDouble(textField5Str);
+			        double result = textField6Value - textField5Value;
+			        result = Math.max(0, result); // Prevent result from being negative
+			        textField_7.setText(String.valueOf(result));
+			    }
+			}
+
+		});
+		textField_6.setColumns(10);
+		textField_6.setBounds(117, 334, 113, 20);
+		contentPane.add(textField_6);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(117, 381, 113, 25);
+		contentPane.add(textField_7);
+		
+		lblGrandTotal = new JLabel("Grand Total");
+		lblGrandTotal.setBounds(28, 285, 81, 25);
+		contentPane.add(lblGrandTotal);
+		
+		lblCash = new JLabel("Cash");
+		lblCash.setBounds(28, 334, 81, 25);
+		contentPane.add(lblCash);
+		
+		lblChange = new JLabel("Change");
+		lblChange.setBounds(28, 381, 81, 25);
+		contentPane.add(lblChange);
+		
+		btnNewButton = new JButton("Add");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String totalStr = textField_4.getText();
+				if (!totalStr.isEmpty()) {
+				    double total = Double.parseDouble(totalStr);
+				    String currentTotalStr = textField_5.getText();
+				    double currentTotal = currentTotalStr.isEmpty() ? 0 : Double.parseDouble(currentTotalStr);
+				    double newTotal = currentTotal + total;
+				    textField_5.setText(String.valueOf(newTotal));
+				    
+				    textField.setText("");
+				    textField_1.setText("");
+				    textField_2.setText("");
+				    textField_3.setText("");
+				    textField_4.setText("");
+
+				}
+
+				
+			}
+		});
+		btnNewButton.setBounds(149, 119, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton print = new JButton("Print");
+		print.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			    if (e.getSource() == print) {
+			        // Get the input values
+			        double cost = Double.parseDouble(textField_5.getText());
+			        double discount = Double.parseDouble(textField_6.getText());
+			        double tax = Double.parseDouble(textField_7.getText());
+
+			        // Calculate total cost
+			        double totalCost = cost - discount + (cost * tax / 100);
+
+			        // Format the receipt string
+			        String receipt = "Receipt\n";
+			        receipt += "--------------------\n";
+			        receipt += String.format("%-15s %-10s %-10s\n", "Item", "Price", "Total");
+			        receipt += String.format("%-15s %-10.2f %-10.2f\n", "Cost:", cost, cost);
+			        receipt += String.format("%-15s %-30.2f\n", "Discount:", discount);
+			        receipt += String.format("%-15s %-30.2f%%\n", "Tax:", tax);
+			        receipt += String.format("%-15s %-30.2f\n\n", "Total:", totalCost);
+
+			        // Add the receipt to the text area
+			        textArea.append(receipt);
+
+			        // Reset the input fields
+			        textField_5.setText("");
+			        textField_6.setText("");
+			        textField_7.setText("");
+			    }
+			}
+
+		});
+		print.setBounds(149, 152, 89, 23);
+		contentPane.add(print);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(272, 29, 327, 357);
+		contentPane.add(textArea);
+	}
+}
